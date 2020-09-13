@@ -61,3 +61,17 @@ After installing node, this project will need yarn too, so just run the followin
 After completing the above mentioned process open command prompt in the project directory and run the below command to run the project
 
     $ npm start
+
+## Approach
+
+Following are the approach used for developing the project.
+
+- Install the required software for the project.
+- Start a Node project with npm init
+- Install all the required dependencies.
+- Using express.js create RESTful servies in Node which will be used for fetching data from spacex api.
+- Start a React.js project inside the Node project which will be serverd to the end user
+- Implement Redux for better state mangement in React
+- Segreate the logic of components with redux using proper folder structuring.
+- Using CSS for styling and making the design responsive for desktop , mobile and tablet
+- Build the react project and serve the index.html to the client.

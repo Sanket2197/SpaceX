@@ -204,6 +204,9 @@ ul {
     margin: 0px;
     padding: 0px;
   }
+  .spinner {
+    left: 26% !important;
+  }
   h1 {
     line-height: 28px;
   }

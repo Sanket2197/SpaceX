@@ -1,6 +1,6 @@
 # SpaceX Explorer
 
-React.js application for which would help users list and browse all launches by SpaceX program.
+React.js application which would help users list and browse all launches by SpaceX program.
 
 ---
 

@@ -1,9 +1,9 @@
-import React, { useEffect, Fragment } from 'react';
-import { connect } from 'react-redux';
-import { getAllLaunches } from '../../actions/spacex';
+import React, { useEffect, Fragment } from "react";
+import { connect } from "react-redux";
+import { getAllLaunches } from "../../actions/spacex";
 
-import Spinner from '../utils/Spinner';
-import Launches from '../launches/Launches';
+import Spinner from "../utils/Spinner";
+import Launches from "../launches/Launches";
 
 const Dashboard = ({ getAllLaunches, spacex }) => {
   useEffect(() => {
@@ -23,8 +23,8 @@ const Dashboard = ({ getAllLaunches, spacex }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  spacex: state.spacex
+const mapStateToProps = (state) => ({
+  spacex: state.spacex,
 });
 
 export default connect(mapStateToProps, { getAllLaunches })(Dashboard);

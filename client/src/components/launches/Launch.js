@@ -8,7 +8,7 @@ const Launch = (props) => {
       <h4>Mission Ids : </h4>
       <ul>
         {props.launch.mission_id && props.launch.mission_id.length > 0 ? (
-          props.launch.mission_id.map((mi) => <li>{mi}</li>)
+          props.launch.mission_id.map((mi) => <li key={mi}>{mi}</li>)
         ) : (
           <li>NA</li>
         )}

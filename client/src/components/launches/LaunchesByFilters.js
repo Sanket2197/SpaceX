@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { getAllSuccessLaunches } from "../../actions/spacex";
+import { getLaunchDetailsByFilters } from "../../actions/spacex";
 import Launches from "./Launches";
 import Spinner from "../utils/Spinner";
-const LaunchSuccess = ({ getAllSuccessLaunches, spacex, match }) => {
+const LaunchesByFilters = ({ getLaunchDetailsByFilters, spacex, filters }) => {
   useEffect(() => {
-    getAllSuccessLaunches(match.params.success);
-  }, [getAllSuccessLaunches, match.params.success]);
+    getLaunchDetailsByFilters(filters);
+  }, [getLaunchDetailsByFilters, filters]);
 
   return (
     <div>
@@ -20,9 +20,10 @@ const LaunchSuccess = ({ getAllSuccessLaunches, spacex, match }) => {
 };
 
 const mapStateToProps = (state) => ({
+  filters: state.spacex.filters,
   spacex: state.spacex,
 });
 
-export default connect(mapStateToProps, { getAllSuccessLaunches })(
-  LaunchSuccess
+export default connect(mapStateToProps, { getLaunchDetailsByFilters })(
+  LaunchesByFilters
 );

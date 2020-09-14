@@ -3,9 +3,8 @@ import {
   GET_ALL_LAUNCHES_INIT,
   GET_ALL_LAUNCHES,
   LAUNCH_ERROR,
-  GET_ALL_SUCCESS_LAUNCHES,
-  GET_ALL_SUCCESS_LAUNCHES_LANDED,
   GET_ALL_LAUNCHES_BY_YEAR,
+  UPDATE_FILTER,
 } from "./types";
 
 // Get All Launches
@@ -29,18 +28,16 @@ export const getAllLaunches = () => async (dispatch) => {
   }
 };
 
-// Get All Success Launches
-export const getAllSuccessLaunches = (success) => async (dispatch) => {
+// Update Filters
+export const updateFilters = (filters) => async (dispatch) => {
   try {
     dispatch({
       type: GET_ALL_LAUNCHES_INIT,
     });
 
-    const res = await axios.get(`/api/spacex/get-all-success/${success}`);
-
     dispatch({
-      type: GET_ALL_SUCCESS_LAUNCHES,
-      payload: res.data,
+      type: UPDATE_FILTER,
+      payload: filters,
     });
   } catch (err) {
     dispatch({
@@ -50,36 +47,17 @@ export const getAllSuccessLaunches = (success) => async (dispatch) => {
   }
 };
 
-// Get All Success Launches Landed
-export const getAllSuccessLaunchesLanded = (land) => async (dispatch) => {
+// Get Details
+export const getLaunchDetailsByFilters = (filters) => async (dispatch) => {
   try {
-    dispatch({
-      type: GET_ALL_LAUNCHES_INIT,
-    });
+    const { year, launch_success, land_success } = filters;
 
-    const res = await axios.get(`/api/spacex/get-all-success-land/${land}`);
-
-    dispatch({
-      type: GET_ALL_SUCCESS_LAUNCHES_LANDED,
-      payload: res.data,
-    });
-  } catch (err) {
-    dispatch({
-      type: LAUNCH_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
-  }
-};
-
-// Get All  Launches By Year
-export const getAllLaunchesByYear = (year) => async (dispatch) => {
-  try {
     dispatch({
       type: GET_ALL_LAUNCHES_INIT,
     });
 
     const res = await axios.get(
-      `/api/spacex/get-all-success-land-by-year/${year}`
+      `/api/spacex/get-all-by-filter/${year}/${launch_success}/${land_success}`
     );
 
     dispatch({
